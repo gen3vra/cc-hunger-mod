@@ -1,0 +1,2 @@
+# CrossCode Hunger Mod
+Experimental and silly, but working. This mod adds a hunger system to CrossCode. You can eat any kind of food to restore your hunger, and if you don't eat, you will eventually start to lose health and die.

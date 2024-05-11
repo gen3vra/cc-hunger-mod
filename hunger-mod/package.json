@@ -1,0 +1,9 @@
+{
+  "name": "cc-hunger-mod",
+  "version": "0.0.1",
+  "ccmodHumanName": "Hunger Mod",
+  "description": "Adds hunger. You need to eat food to survive. If you don't eat, you will be severely handicapped and eventually die.",
+  "homepage": "https://github.com/gen3vra/cc-hunger-mod",
+  "main": "main.js",
+  "module": "true"
+}
