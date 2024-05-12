@@ -5,6 +5,8 @@ var lowHungerState = false;
 var starvingState = false;
 var lastNotifiedHunger = -1;
 var pre = "cchunger.vars.";
+
+ig.input.bind(ig.KEY.H, 'hungerPress');
 ig.ENTITY.Player.inject({
     update(...args) {
         if (ig.game.playerEntity.itemConsumer.hungerAdded == null) {
@@ -16,7 +18,7 @@ ig.ENTITY.Player.inject({
         }
 
         if (!sc.model.isCutscene())
-            hunger -= ig.system.tick / 11;
+            hunger -= ig.system.tick / 10;
 
         if (hunger >= 20) {
             lowHungerState = false;
@@ -85,7 +87,7 @@ ig.ENTITY.Player.inject({
     },
 });
 function notifyHunger() {
-    if (hunger - lastNotifiedHunger > 20 || lastNotifiedHunger - hunger > 20) {
+    if (hunger - lastNotifiedHunger > 15 || lastNotifiedHunger - hunger > 15 || ig.input.pressed('hungerPress')) {
         if (hunger > 10) {
             new cc.ig.events.SHOW_AR_MSG(
                 {
@@ -122,8 +124,8 @@ function setup() {
         }
 
         hunger += hungerRestore;
-        if (hunger > 150)
-            hunger = 150;
+        if (hunger > 120)
+            hunger = 120;
         origItemUseFunc.bind(this)(...arguments);
     }
 
